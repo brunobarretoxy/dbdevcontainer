@@ -13,6 +13,7 @@ O modelo abaixo foi organizado a partir do diagrama relacional e do dicionário 
 
 - USUARIO(id, nome, icone, plano, idiomaPreferencial)
 - MANGA(id, nome, autor, artista, sumario, classificacao, capa, cronograma)
+- MANGA(id, nome, autor, artista, sumario, classificacao, capa, cronograma, qtdCapitulos, idioma)
 - FAVORITA(usuario_id, manga_id)
 - CAPITULO(id, titulo, numeracao, dataPublicacao, qtdVisualizacoes, isFree, idioma, id_manga)
 - PAGINA(id_capitulo, numero, imagem)
@@ -50,6 +51,8 @@ O modelo abaixo foi organizado a partir do diagrama relacional e do dicionário 
 | classificacao | ENUM         | Nao | Nao |  Nao | Valores: LIVRE, 10, 12, 14, 16, 18 |
 | capa          | VARCHAR(255) | Nao | Nao |  Nao | Caminho ou URL da capa             |
 | cronograma    | VARCHAR(63)  | Nao | Nao |  Sim | Frequencia de publicacao           |
+| qtdCapitulos  | INT          | Nao | Nao |  Nao | Quantidade total de capitulos      |
+| idioma        | ENUM         | Nao | Nao |  Nao | Valores: PT_BR, EN, ES, JA         |
 
 ### FAVORITA
 

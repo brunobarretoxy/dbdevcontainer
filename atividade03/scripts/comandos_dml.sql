@@ -13,12 +13,12 @@ INSERT INTO usuario (nome, icone, plano, idioma_preferencial) VALUES
 ('Ester Rocha', '/img/users/ester.png', 'deluxe', 'PT_BR');
 
 -- B1. Comando INSERT para inserir 5 registros na tabela manga.
-INSERT INTO manga (nome, autor, artista, sumario, classificacao, capa, cronograma) VALUES
-('Cidade de Papel', 'R. Nogueira', 'L. Alves', 'Jovens descobrem uma biblioteca secreta em uma cidade esquecida.', '12', '/img/manga/cidade-de-papel.png', 'semanal'),
-('Guardiao do Norte', 'M. Barros', 'I. Paiva', 'Um guerreiro protege aldeias do frio eterno e de criaturas antigas.', '14', '/img/manga/guardiao-do-norte.png', 'mensal'),
-('Estrelas de Aço', 'T. Menezes', 'C. Duarte', 'Pilotos disputam rotas interestelares em uma guerra comercial futurista.', '16', '/img/manga/estrelas-de-aco.png', 'quinzenal'),
-('Jardim das Sombras', 'P. Ferraz', 'A. Ribeiro', 'Uma investigadora enfrenta enigmas ligados a memórias apagadas.', '18', '/img/manga/jardim-das-sombras.png', 'mensal'),
-('Lendas do Vale', 'S. Almeida', 'M. Costa', 'Cinco aprendizes unem forças para proteger um vale sagrado.', 'LIVRE', '/img/manga/lendas-do-vale.png', 'semanal');
+INSERT INTO manga (nome, autor, artista, sumario, classificacao, capa, cronograma, qtdCapitulos, idioma) VALUES
+('Cidade de Papel', 'R. Nogueira', 'L. Alves', 'Jovens descobrem uma biblioteca secreta em uma cidade esquecida.', '12', '/img/manga/cidade-de-papel.png', 'semanal', 1, 'PT_BR'),
+('Guardiao do Norte', 'M. Barros', 'I. Paiva', 'Um guerreiro protege aldeias do frio eterno e de criaturas antigas.', '14', '/img/manga/guardiao-do-norte.png', 'mensal', 1, 'PT_BR'),
+('Estrelas de Aço', 'T. Menezes', 'C. Duarte', 'Pilotos disputam rotas interestelares em uma guerra comercial futurista.', '16', '/img/manga/estrelas-de-aco.png', 'quinzenal', 1, 'EN'),
+('Jardim das Sombras', 'P. Ferraz', 'A. Ribeiro', 'Uma investigadora enfrenta enigmas ligados a memórias apagadas.', '18', '/img/manga/jardim-das-sombras.png', 'mensal', 1, 'ES'),
+('Lendas do Vale', 'S. Almeida', 'M. Costa', 'Cinco aprendizes unem forças para proteger um vale sagrado.', 'LIVRE', '/img/manga/lendas-do-vale.png', 'semanal', 1, 'PT_BR');
 
 -- B1. Comando INSERT para inserir 5 registros na tabela favorita.
 INSERT INTO favorita (usuario_id, manga_id) VALUES

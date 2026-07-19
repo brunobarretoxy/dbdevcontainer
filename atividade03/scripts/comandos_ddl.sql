@@ -40,6 +40,8 @@ CREATE TABLE IF NOT EXISTS manga (
     classificacao classificacao_enum NOT NULL,
     capa VARCHAR(255) NOT NULL,
     cronograma VARCHAR(63),
+    qtdCapitulos INT NOT NULL,
+    idioma idioma_enum NOT NULL,
     CONSTRAINT manga_classificacao_chk CHECK (classificacao IN ('LIVRE', '10', '12', '14', '16', '18'))
 );
 
