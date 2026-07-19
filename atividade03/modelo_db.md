@@ -12,7 +12,6 @@ O modelo abaixo foi organizado a partir do diagrama relacional e do dicionário 
 ### Diagrama relacional textual
 
 - USUARIO(id, nome, icone, plano, idiomaPreferencial)
-- MANGA(id, nome, autor, artista, sumario, classificacao, capa, cronograma)
 - MANGA(id, nome, autor, artista, sumario, classificacao, capa, cronograma, qtdCapitulos, idioma)
 - FAVORITA(usuario_id, manga_id)
 - CAPITULO(id, titulo, numeracao, dataPublicacao, qtdVisualizacoes, isFree, idioma, id_manga)
