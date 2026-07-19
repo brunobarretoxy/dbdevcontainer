@@ -10,7 +10,7 @@ SELECT nome,
        autor,
        classificacao
 FROM manga
-WHERE classificacao = '14+';
+WHERE classificacao = '14';
 
 -- C3. Comando SELECT para listar alguns campos dos registros que satisfazem uma condicao composta.
 SELECT titulo,
@@ -18,7 +18,7 @@ SELECT titulo,
        dataPublicacao,
        idioma
 FROM capitulo
-WHERE idioma = 'pt-BR'
+WHERE idioma = 'PT_BR'
   AND isFree = TRUE;
 
 -- C4. Comando SELECT usando GROUP BY com os campos dos registros que satisfazem uma condicao.

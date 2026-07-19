@@ -6,19 +6,19 @@ BEGIN;
 
 -- B1. Comando INSERT para inserir 5 registros na tabela usuario.
 INSERT INTO usuario (nome, icone, plano, idioma_preferencial) VALUES
-('Ana Costa', '/img/users/ana.png', 'deluxe', 'pt-BR'),
-('Bruno Lima', '/img/users/bruno.png', 'standard', 'pt-BR'),
-('Carla Mendes', '/img/users/carla.png', 'basico', 'en-US'),
-('Daniel Souza', '/img/users/daniel.png', 'standard', 'es-ES'),
-('Ester Rocha', '/img/users/ester.png', 'deluxe', 'pt-BR');
+('Ana Costa', '/img/users/ana.png', 'deluxe', 'PT_BR'),
+('Bruno Lima', '/img/users/bruno.png', 'standard', 'PT_BR'),
+('Carla Mendes', '/img/users/carla.png', 'basico', 'EN'),
+('Daniel Souza', '/img/users/daniel.png', 'standard', 'ES'),
+('Ester Rocha', '/img/users/ester.png', 'deluxe', 'PT_BR');
 
 -- B1. Comando INSERT para inserir 5 registros na tabela manga.
 INSERT INTO manga (nome, autor, artista, sumario, classificacao, capa, cronograma) VALUES
-('Cidade de Papel', 'R. Nogueira', 'L. Alves', 'Jovens descobrem uma biblioteca secreta em uma cidade esquecida.', '12+', '/img/manga/cidade-de-papel.png', 'semanal'),
-('Guardiao do Norte', 'M. Barros', 'I. Paiva', 'Um guerreiro protege aldeias do frio eterno e de criaturas antigas.', '14+', '/img/manga/guardiao-do-norte.png', 'mensal'),
-('Estrelas de Aço', 'T. Menezes', 'C. Duarte', 'Pilotos disputam rotas interestelares em uma guerra comercial futurista.', '16+', '/img/manga/estrelas-de-aco.png', 'quinzenal'),
-('Jardim das Sombras', 'P. Ferraz', 'A. Ribeiro', 'Uma investigadora enfrenta enigmas ligados a memórias apagadas.', '18+', '/img/manga/jardim-das-sombras.png', 'mensal'),
-('Lendas do Vale', 'S. Almeida', 'M. Costa', 'Cinco aprendizes unem forças para proteger um vale sagrado.', 'livre', '/img/manga/lendas-do-vale.png', 'semanal');
+('Cidade de Papel', 'R. Nogueira', 'L. Alves', 'Jovens descobrem uma biblioteca secreta em uma cidade esquecida.', '12', '/img/manga/cidade-de-papel.png', 'semanal'),
+('Guardiao do Norte', 'M. Barros', 'I. Paiva', 'Um guerreiro protege aldeias do frio eterno e de criaturas antigas.', '14', '/img/manga/guardiao-do-norte.png', 'mensal'),
+('Estrelas de Aço', 'T. Menezes', 'C. Duarte', 'Pilotos disputam rotas interestelares em uma guerra comercial futurista.', '16', '/img/manga/estrelas-de-aco.png', 'quinzenal'),
+('Jardim das Sombras', 'P. Ferraz', 'A. Ribeiro', 'Uma investigadora enfrenta enigmas ligados a memórias apagadas.', '18', '/img/manga/jardim-das-sombras.png', 'mensal'),
+('Lendas do Vale', 'S. Almeida', 'M. Costa', 'Cinco aprendizes unem forças para proteger um vale sagrado.', 'LIVRE', '/img/manga/lendas-do-vale.png', 'semanal');
 
 -- B1. Comando INSERT para inserir 5 registros na tabela favorita.
 INSERT INTO favorita (usuario_id, manga_id) VALUES
@@ -30,11 +30,11 @@ INSERT INTO favorita (usuario_id, manga_id) VALUES
 
 -- B1. Comando INSERT para inserir 5 registros na tabela capitulo.
 INSERT INTO capitulo (titulo, numeracao, dataPublicacao, qtdVisualizacoes, isFree, idioma, id_manga) VALUES
-('A porta escondida', 'Cap. 1', DATE '2026-01-05', 1240, TRUE, 'pt-BR', 1),
-('Frio sem fim', 'Cap. 7', DATE '2026-01-18', 980, FALSE, 'pt-BR', 2),
-('Primeira rota', 'Cap. 3', DATE '2026-02-02', 2310, TRUE, 'en-US', 3),
-('A sala sem espelhos', 'Cap. 9', DATE '2026-02-20', 450, FALSE, 'es-ES', 4),
-('O juramento do vale', 'Cap. 2', DATE '2026-03-01', 1780, TRUE, 'pt-BR', 5);
+('A porta escondida', 'Cap. 1', DATE '2026-01-05', 1240, TRUE, 'PT_BR', 1),
+('Frio sem fim', 'Cap. 7', DATE '2026-01-18', 980, FALSE, 'PT_BR', 2),
+('Primeira rota', 'Cap. 3', DATE '2026-02-02', 2310, TRUE, 'EN', 3),
+('A sala sem espelhos', 'Cap. 9', DATE '2026-02-20', 450, FALSE, 'ES', 4),
+('O juramento do vale', 'Cap. 2', DATE '2026-03-01', 1780, TRUE, 'PT_BR', 5);
 
 -- B1. Comando INSERT para inserir 5 registros na tabela pagina.
 INSERT INTO pagina (id_capitulo, numero, imagem) VALUES
@@ -58,13 +58,13 @@ SET cronograma = 'semanal';
 
 -- B3. Comando UPDATE para atualizar um campo dos registros que satisfazem uma condicao simples.
 UPDATE usuario
-SET idioma_preferencial = 'pt-BR'
+SET idioma_preferencial = 'PT_BR'
 WHERE plano = 'basico';
 
 -- B4. Comando UPDATE para atualizar um campo dos registros que satisfazem uma condicao composta.
 UPDATE capitulo
 SET isFree = TRUE
-WHERE idioma = 'pt-BR'
+WHERE idioma = 'PT_BR'
   AND qtdVisualizacoes < 1500;
 
 -- B5. Comando UPDATE para atualizar dois campos dos registros que satisfazem uma condicao.

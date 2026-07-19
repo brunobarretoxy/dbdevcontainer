@@ -2,14 +2,33 @@
 -- Modelo relacional: Aplicacao Web de leitura de mangas
 -- Banco-alvo: PostgreSQL
 
+DO $$
+BEGIN
+    CREATE TYPE plano_enum AS ENUM ('basico', 'standard', 'deluxe');
+EXCEPTION
+    WHEN duplicate_object THEN NULL;
+END $$;
+
+DO $$
+BEGIN
+    CREATE TYPE idioma_enum AS ENUM ('PT_BR', 'EN', 'ES', 'JA');
+EXCEPTION
+    WHEN duplicate_object THEN NULL;
+END $$;
+
+DO $$
+BEGIN
+    CREATE TYPE classificacao_enum AS ENUM ('LIVRE', '10', '12', '14', '16', '18');
+EXCEPTION
+    WHEN duplicate_object THEN NULL;
+END $$;
+
 CREATE TABLE IF NOT EXISTS usuario (
     id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
     icone VARCHAR(255) NOT NULL,
-    plano VARCHAR(20) NOT NULL,
-    idioma_preferencial VARCHAR(20) NOT NULL,
-    CONSTRAINT usuario_plano_chk CHECK (plano IN ('basico', 'standard', 'deluxe')),
-    CONSTRAINT usuario_idioma_chk CHECK (idioma_preferencial IN ('pt-BR', 'en-US', 'es-ES'))
+    plano plano_enum NOT NULL,
+    idioma_preferencial idioma_enum NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS manga (
@@ -18,10 +37,10 @@ CREATE TABLE IF NOT EXISTS manga (
     autor VARCHAR(255) NOT NULL,
     artista VARCHAR(255),
     sumario TEXT NOT NULL,
-    classificacao VARCHAR(20) NOT NULL,
+    classificacao classificacao_enum NOT NULL,
     capa VARCHAR(255) NOT NULL,
     cronograma VARCHAR(63),
-    CONSTRAINT manga_classificacao_chk CHECK (classificacao IN ('livre', '10+', '12+', '14+', '16+', '18+'))
+    CONSTRAINT manga_classificacao_chk CHECK (classificacao IN ('LIVRE', '10', '12', '14', '16', '18'))
 );
 
 CREATE TABLE IF NOT EXISTS favorita (
@@ -39,10 +58,10 @@ CREATE TABLE IF NOT EXISTS capitulo (
     dataPublicacao DATE NOT NULL,
     qtdVisualizacoes INT NOT NULL DEFAULT 0,
     isFree BOOLEAN NOT NULL,
-    idioma VARCHAR(20) NOT NULL,
+    idioma idioma_enum NOT NULL,
     id_manga INT NOT NULL,
     CONSTRAINT capitulo_manga_fk FOREIGN KEY (id_manga) REFERENCES manga (id) ON DELETE CASCADE,
-    CONSTRAINT capitulo_idioma_chk CHECK (idioma IN ('pt-BR', 'en-US', 'es-ES'))
+    CONSTRAINT capitulo_idioma_chk CHECK (idioma IN ('PT_BR', 'EN', 'ES', 'JA'))
 );
 
 CREATE TABLE IF NOT EXISTS pagina (
