@@ -4,12 +4,12 @@
 -- D1. Comando SELECT para exibir alguns dados de DUAS tabelas usando junção qualificada.
 SELECT m.nome AS manga,
        c.titulo,
-       c.dataPublicacao
+       c.data_publicacao
 FROM manga AS m
 INNER JOIN capitulo AS c
         ON c.id_manga = m.id
 ORDER BY m.nome,
-         c.dataPublicacao;
+         c.data_publicacao;
 
 -- D2. Comando SELECT para exibir alguns dados de TRES tabelas usando junção qualificada.
 SELECT u.nome AS usuario,
@@ -31,7 +31,7 @@ FROM manga AS m
 LEFT JOIN capitulo AS c
        ON c.id_manga = m.id
 ORDER BY m.nome,
-         c.dataPublicacao;
+         c.data_publicacao;
 
 -- D4. Comando SELECT para exibir alguns dados usando FULL OUTER JOIN.
 SELECT u.nome AS usuario,

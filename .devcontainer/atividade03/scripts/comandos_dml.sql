@@ -13,7 +13,7 @@ INSERT INTO usuario (nome, icone, plano, idioma_preferencial) VALUES
 ('Ester Rocha', '/img/users/ester.png', 'deluxe', 'PT_BR');
 
 -- B1. Comando INSERT para inserir 5 registros na tabela manga.
-INSERT INTO manga (nome, autor, artista, sumario, classificacao, capa, cronograma, qtdCapitulos, idioma) VALUES
+INSERT INTO manga (nome, autor, artista, sumario, classificacao, capa, cronograma, qtd_capitulos, idioma) VALUES
 ('Cidade de Papel', 'R. Nogueira', 'L. Alves', 'Jovens descobrem uma biblioteca secreta em uma cidade esquecida.', '12', '/img/manga/cidade-de-papel.png', 'semanal', 1, 'PT_BR'),
 ('Guardiao do Norte', 'M. Barros', 'I. Paiva', 'Um guerreiro protege aldeias do frio eterno e de criaturas antigas.', '14', '/img/manga/guardiao-do-norte.png', 'mensal', 1, 'PT_BR'),
 ('Estrelas de Aço', 'T. Menezes', 'C. Duarte', 'Pilotos disputam rotas interestelares em uma guerra comercial futurista.', '16', '/img/manga/estrelas-de-aco.png', 'quinzenal', 1, 'EN'),
@@ -29,7 +29,7 @@ INSERT INTO favorita (usuario_id, manga_id) VALUES
 (5, 2);
 
 -- B1. Comando INSERT para inserir 5 registros na tabela capitulo.
-INSERT INTO capitulo (titulo, numeracao, dataPublicacao, qtdVisualizacoes, isFree, idioma, id_manga) VALUES
+INSERT INTO capitulo (titulo, numeracao, data_publicacao, qtd_visualizacoes, is_free, idioma, id_manga) VALUES
 ('A porta escondida', 'Cap. 1', DATE '2026-01-05', 1240, TRUE, 'PT_BR', 1),
 ('Frio sem fim', 'Cap. 7', DATE '2026-01-18', 980, FALSE, 'PT_BR', 2),
 ('Primeira rota', 'Cap. 3', DATE '2026-02-02', 2310, TRUE, 'EN', 3),
@@ -45,7 +45,7 @@ INSERT INTO pagina (id_capitulo, numero, imagem) VALUES
 (5, 1, '/img/pages/cap2-p1.png');
 
 -- B1. Comando INSERT para inserir 5 registros na tabela comentario.
-INSERT INTO comentario (conteudo, data, hora, numeroCurtidas, id_capitulo, id_usuario) VALUES
+INSERT INTO comentario (conteudo, data, hora, numero_curtidas, id_capitulo, id_usuario) VALUES
 ('Capitulo muito bom, a revelacao final ficou forte.', DATE '2026-03-02', TIME '18:10:00', 24, 1, 2),
 ('A arte do frio eterno ficou impressionante.', DATE '2026-03-03', TIME '09:05:00', 18, 2, 1),
 ('Gostei do ritmo da historia e da dublagem em ingles.', DATE '2026-03-04', TIME '21:40:00', 11, 3, 3),
@@ -63,13 +63,13 @@ WHERE plano = 'basico';
 
 -- B4. Comando UPDATE para atualizar um campo dos registros que satisfazem uma condicao composta.
 UPDATE capitulo
-SET isFree = TRUE
+SET is_free = TRUE
 WHERE idioma = 'PT_BR'
-  AND qtdVisualizacoes < 1500;
+  AND qtd_visualizacoes < 1500;
 
 -- B5. Comando UPDATE para atualizar dois campos dos registros que satisfazem uma condicao.
 UPDATE comentario
-SET numeroCurtidas = 40,
+SET numero_curtidas = 40,
     conteudo = 'Atualizacao: comentario muito positivo sobre o capitulo.'
 WHERE id = 4;
 
@@ -92,7 +92,7 @@ WHERE numero = 2;
 
 -- B10. Comando DELETE para remover os registros que satisfazem uma condicao composta.
 DELETE FROM comentario
-WHERE numeroCurtidas < 20
+WHERE numero_curtidas < 20
   AND data < DATE '2026-03-05';
 
 -- B11. Comando DELETE para remover um campo usando uma funcao.

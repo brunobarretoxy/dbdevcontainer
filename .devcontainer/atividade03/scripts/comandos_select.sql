@@ -15,11 +15,11 @@ WHERE classificacao = '14';
 -- C3. Comando SELECT para listar alguns campos dos registros que satisfazem uma condicao composta.
 SELECT titulo,
        numeracao,
-       dataPublicacao,
+       data_publicacao,
        idioma
 FROM capitulo
 WHERE idioma = 'PT_BR'
-  AND isFree = TRUE;
+  AND is_free = TRUE;
 
 -- C4. Comando SELECT usando GROUP BY com os campos dos registros que satisfazem uma condicao.
 SELECT m.nome AS manga,
