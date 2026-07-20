@@ -7,6 +7,8 @@
 
 ## Modelagem relacional
 
+![Diagrama Relacional](../imgs/Diagrama_Relacional.png)
+
 O modelo abaixo foi organizado a partir do diagrama relacional e do dicionário de dados do PDF da Atividade 2, considerando a normalização descrita no material.
 
 ### Diagrama relacional textual
